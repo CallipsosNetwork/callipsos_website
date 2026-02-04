@@ -315,8 +315,8 @@ const Team = () => {
                 </div>
 
                 {/* Content */}
-                <div className="max-w-3xl mx-auto text-center relative z-10">
-                    {/* Glowing orb decoration */}
+                {/* <div className="max-w-3xl mx-auto text-center relative z-10">
+                    Glowing orb decoration
                     <div className="relative inline-block mb-8">
                         <div className="w-16 h-16 rounded-full bg-gradient-to-br from-emerald-500/20 to-emerald-500/5 border border-emerald-500/30 flex items-center justify-center">
                             <Sparkles className="w-6 h-6 text-emerald-400" />
@@ -340,7 +340,7 @@ const Team = () => {
                         <span>careers@callipso.network</span>
                     </a>
 
-                    {/* Building in Public section */}
+                    Building in Public section
                     <div className="mt-16 mb-8">
                         <p className="text-stone-600 text-sm tracking-widest uppercase mb-3">
                             Building in Public
@@ -350,7 +350,7 @@ const Team = () => {
                         </p>
                     </div>
 
-                    {/* Social links - binary visible behind these */}
+                    Social links - binary visible behind these
                     <div className="flex items-center justify-center gap-4">
                         <a
                             href="https://x.com/callipsos"
@@ -372,11 +372,11 @@ const Team = () => {
                         </a>
                     </div>
 
-                    {/* Open roles hint */}
+                    Open roles hint
                     <p className="text-stone-700 text-sm mt-8">
                         Currently hiring: Senior Engineer, Security Researcher
                     </p>
-                </div>
+                </div> */}
             </section>
         </div>
     )

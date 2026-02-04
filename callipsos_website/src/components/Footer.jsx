@@ -14,9 +14,9 @@ const Footer = () => {
                     alt=""
                     className="
             opacity-90
-            w-[min(920px,88vw)]
-            md:w-[min(980px,62vw)]
-            lg:w-[min(1040px,58vw)]
+            w-[min(620px,60vw)]
+            md:w-[min(580px,40vw)]
+            lg:w-[min(800px,50vw)]
             translate-x-6 md:translate-x-10
             -translate-y-6 md:-translate-y-10
             object-contain object-bottom-right
