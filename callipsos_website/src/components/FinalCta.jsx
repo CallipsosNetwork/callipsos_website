@@ -8,7 +8,7 @@ const FinalCTA = () => {
 
 
     return (
-        <section id="cta" className="relative min-h-screen flex flex-col justify-center items-center overflow-hidden bg-black">
+        <section id="cta" className="relative min-h-[50vh] flex flex-col justify-center items-center overflow-hidden bg-black">
             {/* ============================================ */}
             {/* HERO TEXT WITH VIDEO MASK */}
             {/* Uses mix-blend-mode knockout technique */}
@@ -18,7 +18,7 @@ const FinalCTA = () => {
                 style={{ isolation: 'isolate' }}
             >
                 {/* Video layer - sits behind */}
-                <video
+                {/* <video
                     autoPlay
                     loop
                     muted
@@ -30,7 +30,7 @@ const FinalCTA = () => {
                     }}
                 >
                     <source src="/videos/matrix-rain.webm" type="video/webm" />
-                </video>
+                </video> */}
 
                 {/* Text knockout mask layer */}
                 <div

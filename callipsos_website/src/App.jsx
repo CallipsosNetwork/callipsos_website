@@ -1,25 +1,49 @@
-import React from 'react'
+import React, { Suspense, lazy } from "react";
+
 import Navbar from "./components/Navbar.jsx";
 import Hero from "./components/Hero.jsx";
-import ProblemSolution from "./components/ProblemSolution.jsx";
-import Features from "./components/Features.jsx";
-import Chains from "./components/Chains.jsx";
-import Team from "./components/Team.jsx";
-import FinalCTA from "./components/FinalCta.jsx";
-import Footer from "./components/Footer.jsx";
+
+const ProblemSolution = lazy(() => import("./components/ProblemSolution.jsx"));
+const Features = lazy(() => import("./components/Features.jsx"));
+const Chains = lazy(() => import("./components/Chains.jsx"));
+const Team = lazy(() => import("./components/Team.jsx"));
+const FinalCTA = lazy(() => import("./components/FinalCta.jsx"));
+const Footer = lazy(() => import("./components/Footer.jsx"));
 
 const App = () => {
     return (
-        <main>
+        <>
             <Navbar />
-            <Hero />
-            <ProblemSolution />
-            <Features />
-            <Chains />
-            <Team />
-            <FinalCTA />
-            <Footer />
-        </main>
-    )
-}
-export default App
+
+            <main>
+                <Hero />
+
+                <Suspense fallback={<div style={{ padding: "2rem" }}>Loading...</div>}>
+                    <section>
+                        <ProblemSolution />
+                    </section>
+
+                    <section>
+                        <Features />
+                    </section>
+
+                    <section>
+                        <Chains />
+                    </section>
+
+                    <section>
+                        <Team />
+                    </section>
+
+                    <section>
+                        <FinalCTA />
+                    </section>
+
+                    <Footer />
+                </Suspense>
+            </main>
+        </>
+    );
+};
+
+export default App;

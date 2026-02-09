@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { ArrowRight, Zap, Shield, Globe, ChevronRight } from 'lucide-react'
-import {chains} from "../constants/index.js";
+import { chains } from "../constants/index.js";
 import { useWaitlist } from '../hooks/useWaitlist'
 
 // Glassmorphism card style
@@ -75,11 +75,10 @@ const ChainCard = ({ chain, index }) => {
 
                     {/* Status badge */}
                     <div
-                        className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 ${
-                            isLive
+                        className={`px-3 py-1 rounded-full text-xs font-medium transition-all duration-300 ${isLive
                                 ? 'bg-emerald-500/10 text-emerald-400 border border-emerald-500/20'
                                 : 'bg-stone-800/50 text-stone-500 border border-stone-700/50'
-                        }`}
+                            }`}
                     >
                         <span className="flex items-center gap-1.5">
                             {isLive && (
@@ -145,7 +144,7 @@ const Chains = () => {
     const { email, setEmail, handleSubmit, isLoading, isSuccess } = useWaitlist()
 
     return (
-        <div className="bg-black min-h-screen">
+        <div className="bg-black min-h-screen border-t border-stone-900">
             {/* ============================================ */}
             {/* HERO SECTION */}
             {/* ============================================ */}
@@ -381,101 +380,114 @@ const Chains = () => {
                 </div>
             </section>
 
-            {/* ============================================ */}
-            {/* REQUEST CHAIN CTA */}
-            {/* ============================================ */}
-            <section className="px-6 md:px-8 py-16 border-t border-stone-900/50">
-                <div className="max-w-xl mx-auto text-center">
-                    <h3 className="text-xl md:text-2xl font-light text-stone-300 mb-4">
-                        Don't see your chain?
-                    </h3>
-                    <p className="text-stone-600 mb-6">
-                        We're adding new networks based on demand. Let us know what you need.
-                    </p>
-                    <a
-                        href="mailto:chains@callipso.network"
-                        className="inline-flex items-center gap-2 text-emerald-400/80 hover:text-emerald-400 transition-colors group"
-                    >
-                        <span>Request a chain</span>
-                        <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
-                    </a>
-                </div>
-            </section>
 
+            {/* UNIFIED CTA + REQUEST CHAIN */}
             {/* ============================================ */}
-            {/* MAIN CTA */}
-            {/* ============================================ */}
-            <section className="px-6 md:px-8 py-24 md:py-32">
-                <div className="max-w-3xl mx-auto">
+            <section className="px-6 md:px-8 py-24 md:py-32 border-t border-stone-900/50">
+                <div className="max-w-5xl mx-auto">
                     <div
-                        className="rounded-3xl p-8 md:p-12 text-center relative overflow-hidden"
+                        className="rounded-3xl p-8 md:p-12 relative overflow-hidden"
                         style={glassStyle}
                     >
-                        {/* Background gradient */}
+                        {/* background glow */}
                         <div
                             className="absolute inset-0 opacity-50"
                             style={{
                                 background:
-                                    'radial-gradient(ellipse at 50% 100%, rgba(16, 185, 129, 0.1) 0%, transparent 60%)',
+                                    'radial-gradient(ellipse at 50% 100%, rgba(16,185,129,0.12) 0%, transparent 60%)',
                             }}
                         />
 
-                        <div className="relative z-10">
-                            <h2 className="text-3xl md:text-4xl font-light mb-4 text-stone-200">
-                                Build cross-chain agents
-                                <br />
-                                <span className="text-emerald-400/80">with confidence.</span>
-                            </h2>
+                        <div className="relative z-10 flex flex-col lg:flex-row gap-12 lg:gap-16 items-center">
+                            {/* ================================== */}
+                            {/* LEFT — Request Chain */}
+                            {/* ================================== */}
+                            <div className="flex-1 text-center lg:text-left">
+                                <h3 className="text-2xl md:text-3xl font-light text-stone-200 mb-4">
+                                    Don’t see your chain?
+                                </h3>
 
-                            <p className="text-stone-500 mb-8 max-w-md mx-auto">
-                                Get early access to the Callipsos SDK and start building
-                                secure, multi-chain AI agents today.
-                            </p>
+                                <p className="text-stone-500 mb-6 max-w-md mx-auto lg:mx-0">
+                                    We're constantly expanding. Tell us which network you need and we’ll
+                                    prioritize support.
+                                </p>
 
-                            {/* Email signup */}
-                            <div className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
-                                {isSuccess ? (
-                                <div className="flex items-center justify-center gap-2 py-3.5 text-emerald-400">
-                                    <span>You're on the list! 🎉</span>
-                                </div>
-                                ) : (
-                                <form onSubmit={handleSubmit} className="flex flex-col sm:flex-row gap-3 justify-center max-w-md mx-auto">
-                                    <input
-                                        type="email"
-                                        placeholder="you@email.com"
-                                        value={email}
-                                        onChange={(e) => setEmail(e.target.value)}
-                                        required
-                                        disabled={isLoading}
-                                        className="flex-1 px-5 py-3.5 bg-black/50 border border-stone-800 rounded-xl text-white placeholder-stone-600 focus:outline-none focus:border-emerald-500/50 transition-colors disabled:opacity-50"
-                                    />
-                                    <button
-                                        type="submit"
-                                        disabled={isLoading}
-                                        className="px-6 py-3.5 bg-white text-black font-medium rounded-xl hover:bg-emerald-400 transition-all duration-300 whitespace-nowrap flex items-center justify-center gap-2 group disabled:opacity-50"
-                                    >
-                                        <span>{isLoading ? 'Joining...' : 'Join Waitlist'}</span>
-                                        {!isLoading && <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />}
-                                    </button>
-                                </form>
-                                )}
+                                <a
+                                    href="mailto:chains@callipso.network"
+                                    className="inline-flex items-center gap-2 text-emerald-400 hover:text-emerald-300 transition-colors group"
+                                >
+                                    <span>Request a chain</span>
+                                    <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                </a>
                             </div>
 
-                            {/* Trust indicators */}
-                            <div className="flex items-center justify-center gap-6 mt-8 text-stone-600 text-xs">
-                                <span className="flex items-center gap-1.5">
-                                    <Shield className="w-3.5 h-3.5" />
-                                    No spam
-                                </span>
-                                <span className="flex items-center gap-1.5">
-                                    <Zap className="w-3.5 h-3.5" />
-                                    Early access
-                                </span>
+                            {/* divider for desktop */}
+                            <div className="hidden lg:block w-px self-stretch bg-stone-800/70" />
+
+                            {/* ================================== */}
+                            {/* RIGHT — Waitlist Signup */}
+                            {/* ================================== */}
+                            <div className="flex-1 text-center lg:text-left w-full">
+                                <h2 className="text-3xl md:text-4xl font-light mb-4 text-stone-200">
+                                    Build cross-chain agents
+                                    <br />
+                                    <span className="text-emerald-400/90">with confidence.</span>
+                                </h2>
+
+                                <p className="text-stone-500 mb-8 max-w-md mx-auto lg:mx-0">
+                                    Get early access to the Callipsos SDK and start building secure,
+                                    multi-chain AI agents today.
+                                </p>
+
+                                {isSuccess ? (
+                                    <div className="text-emerald-400 py-3 font-medium">
+                                        You’re on the list! 🎉
+                                    </div>
+                                ) : (
+                                    <form
+                                        onSubmit={handleSubmit}
+                                        className="flex flex-col sm:flex-row gap-3 max-w-md mx-auto lg:mx-0"
+                                    >
+                                        <input
+                                            type="email"
+                                            placeholder="you@email.com"
+                                            value={email}
+                                            onChange={(e) => setEmail(e.target.value)}
+                                            required
+                                            disabled={isLoading}
+                                            className="flex-1 px-5 py-3.5 bg-black/50 border border-stone-800 rounded-xl text-white placeholder-stone-600 focus:outline-none focus:border-emerald-500/50 transition-colors disabled:opacity-50"
+                                        />
+
+                                        <button
+                                            type="submit"
+                                            disabled={isLoading}
+                                            className="px-6 py-3.5 bg-white text-black font-medium rounded-xl hover:bg-emerald-400 transition-all duration-300 whitespace-nowrap flex items-center justify-center gap-2 group disabled:opacity-50"
+                                        >
+                                            <span>{isLoading ? 'Joining...' : 'Join Waitlist'}</span>
+                                            {!isLoading && (
+                                                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
+                                            )}
+                                        </button>
+                                    </form>
+                                )}
+
+                                {/* trust indicators */}
+                                <div className="flex items-center justify-center lg:justify-start gap-6 mt-6 text-stone-600 text-xs">
+                                    <span className="flex items-center gap-1.5">
+                                        <Shield className="w-3.5 h-3.5" />
+                                        No spam
+                                    </span>
+                                    <span className="flex items-center gap-1.5">
+                                        <Zap className="w-3.5 h-3.5" />
+                                        Early access
+                                    </span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </section>
+
         </div>
     )
 }
