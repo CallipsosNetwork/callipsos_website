@@ -1,4 +1,5 @@
 import React, { useState, useCallback, useEffect, memo } from "react";
+import { Link } from "react-router-dom";
 import { navLinks } from "../constants/index.js";
 
 const Navbar = () => {
@@ -73,18 +74,19 @@ const Navbar = () => {
             >
                 <nav className="flex flex-col gap-2 p-8 pt-24">
                     {navLinks.map((link) => (
-                        <a
-                            key={link.label}
-                            href={link.href}
-                            onClick={closeMenu}
-                            className="text-stone-400 hover:text-white transition-colors text-lg py-2"
+                        <Link
+                        key={link.label}
+                        to={link.href}
+                        onClick={closeMenu}
+                        className="text-stone-400 hover:text-white transition-colors text-lg py-2"
                         >
-                            {link.label}
-                        </a>
+                        {link.label}
+                        </Link>
                     ))}
                 </nav>
 
-                {/* socials */}
+
+                {/* socials
                 <div className="absolute bottom-8 left-8 flex gap-5">
                     <a
                         href="https://x.com/Callipsos_"
@@ -107,7 +109,7 @@ const Navbar = () => {
                             <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387..." />
                         </svg>
                     </a>
-                </div>
+                </div> */}
             </aside>
 
             {/* Backdrop */}

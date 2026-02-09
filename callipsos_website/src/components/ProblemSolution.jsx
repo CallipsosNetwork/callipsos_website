@@ -1,45 +1,6 @@
 import React, { memo } from "react";
-import { AlarmClockCheck, Layers, RefreshCw } from "lucide-react";
+import { FEATURES, steps } from "../constants";
 
-/* =========================
-   Static data (perf best practice)
-   ========================= */
-const FEATURES = [
-    {
-        icon: AlarmClockCheck,
-        title: "Always-on trading",
-        desc: "Your agent monitors markets around the clock while you live your life.",
-    },
-    {
-        icon: Layers,
-        title: "Cross-protocol yield",
-        desc: "Find the best rates and move assets automatically.",
-    },
-    {
-        icon: RefreshCw,
-        title: "Smart rebalancing",
-        desc: "Maintain allocation through swings. Buy dips. Take profits.",
-    },
-];
-
-const steps = [
-    {
-        title: "You set the rules",
-        desc: "Define spending limits, allowed tokens and approved protocols. Your boundaries, your control.",
-    },
-    {
-        title: "Agent requests action",
-        desc: "Agents never sign directly. Every transaction must request permission first.",
-    },
-    {
-        title: "We validate & simulate",
-        desc: "Each action is checked against your policies and simulated before execution.",
-    },
-    {
-        title: "Safe execution",
-        desc: "Only approved transactions are signed and executed on-chain. Everything is logged.",
-    },
-];
 
 const StepItem = memo(({ step, index, isLast }) => (
     <li className="relative pl-14">
@@ -200,40 +161,6 @@ const ProblemSolution = () => {
 
             <InsightBand />
 
-            {/* GAP
-            <FullSection>
-                <h2 className="text-4xl md:text-6xl font-light text-stone-200">
-                    The tech exists.
-                    <br />
-                    <span className="text-stone-600">The trust doesn't.</span>
-                </h2>
-            </FullSection>
-
-
-            BLOCKER
-            <Section className="text-center">
-                <p className="text-2xl md:text-4xl text-stone-300 mb-10">
-                    “I want AI to manage my DeFi.
-                    <br />
-                    <span className="text-stone-500">But I still can’t trust agents.”</span>
-                </p>
-
-                <p className="text-stone-500 max-w-2xl mx-auto text-lg">
-                    When something breaks, there’s nothing stopping an agent from draining everything.
-                    Worst case is total loss.
-                </p>
-            </Section>
-
-
-            UNLOCK
-            <FullSection>
-                <h2 className="text-4xl md:text-6xl font-light text-stone-200">
-                    What if compromised
-                    <br />
-                    <span className="text-emerald-400/80">didn't mean catastrophe?</span>
-                </h2>
-            </FullSection> */}
-
             {/* HOW IT WORKS — timeline */}
             <Section>
                 <p className="text-center text-stone-500 text-md uppercase tracking-widest mb-16">
@@ -251,32 +178,6 @@ const ProblemSolution = () => {
                     ))}
                 </ol>
             </Section>
-
-
-
-            {/* PROMISE */}
-            {/* <Section className="text-center">
-                <h2 className="text-4xl md:text-5xl text-stone-200 mb-16">
-                    Let agents work.
-                    <br />
-                    <span className="text-emerald-400">Stay in control.</span>
-                </h2>
-
-                <div className="grid md:grid-cols-3 gap-14">
-                    <div>
-                        <p className="text-4xl text-white">24/7</p>
-                        <p className="text-stone-600">Autonomous operation</p>
-                    </div>
-                    <div>
-                        <p className="text-4xl text-white">100%</p>
-                        <p className="text-stone-600">Validated</p>
-                    </div>
-                    <div>
-                        <p className="text-4xl text-white">Your rules</p>
-                        <p className="text-stone-600">Always enforced</p>
-                    </div>
-                </div>
-            </Section> */}
         </div>
     );
 };
