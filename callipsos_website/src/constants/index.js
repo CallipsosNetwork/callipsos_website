@@ -1,12 +1,9 @@
-const navLinks = [
-    {label: 'Why Callipsos', href: '#why-callipsos'},
-    { label: 'Features', href: '#features' },
-    { label: 'How it Works', href: '#how-it-works' },
-    { label: 'Supported Chains', href: '#chains' },
-    { label: 'Team', href: '#team' },
-    {label: 'Waitlist Signup', href: '#cta'},
-    // { label: 'Docs', href: '#docs' },
+import { AlarmClockCheck, Layers, RefreshCw } from "lucide-react";
 
+const navLinks = [
+  { label: "Home", href: "/" },
+  { label: "Features", href: "/features" },
+  { label: "Team", href: "/team" },
 ];
 const chains = [
     {
@@ -87,6 +84,43 @@ const team = [
     },
 ]
 
+const FEATURES = [
+    {
+        icon: AlarmClockCheck,
+        title: "Always-on trading",
+        desc: "Your agent monitors markets around the clock while you live your life.",
+    },
+    {
+        icon: Layers,
+        title: "Cross-protocol yield",
+        desc: "Find the best rates and move assets automatically.",
+    },
+    {
+        icon: RefreshCw,
+        title: "Smart rebalancing",
+        desc: "Maintain allocation through swings. Buy dips. Take profits.",
+    },
+];
+
+const steps = [
+    {
+        title: "You set the rules",
+        desc: "Define spending limits, allowed tokens and approved protocols. Your boundaries, your control.",
+    },
+    {
+        title: "Agent requests action",
+        desc: "Agents never sign directly. Every transaction must request permission first.",
+    },
+    {
+        title: "We validate & simulate",
+        desc: "Each action is checked against your policies and simulated before execution.",
+    },
+    {
+        title: "Safe execution",
+        desc: "Only approved transactions are signed and executed on-chain. Everything is logged.",
+    },
+];
 
 
-export { navLinks, chains, team };
+
+export { navLinks, chains, team, FEATURES, steps};

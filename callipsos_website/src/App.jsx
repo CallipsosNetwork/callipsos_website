@@ -1,49 +1,24 @@
-import React, { Suspense, lazy } from "react";
+import React from "react";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/Navbar.jsx";
-import Hero from "./components/Hero.jsx";
 
-const ProblemSolution = lazy(() => import("./components/ProblemSolution.jsx"));
-const Features = lazy(() => import("./components/Features.jsx"));
-const Chains = lazy(() => import("./components/Chains.jsx"));
-const Team = lazy(() => import("./components/Team.jsx"));
-const FinalCTA = lazy(() => import("./components/FinalCta.jsx"));
-const Footer = lazy(() => import("./components/Footer.jsx"));
+import Home from "./pages/Home.jsx";
+import FeaturesPage from "./pages/FeaturesPage.jsx";
+import TeamPage from "./pages/TeamPage.jsx";
 
 const App = () => {
-    return (
-        <>
-            <Navbar />
+  return (
+    <Router>
+      <Navbar />
 
-            <main>
-                <Hero />
-
-                <Suspense fallback={<div style={{ padding: "2rem" }}>Loading...</div>}>
-                    <section>
-                        <ProblemSolution />
-                    </section>
-
-                    <section>
-                        <Features />
-                    </section>
-
-                    <section>
-                        <Chains />
-                    </section>
-
-                    <section>
-                        <Team />
-                    </section>
-
-                    <section>
-                        <FinalCTA />
-                    </section>
-
-                    <Footer />
-                </Suspense>
-            </main>
-        </>
-    );
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/features" element={<FeaturesPage />} />
+        <Route path="/team" element={<TeamPage />} />
+      </Routes>
+    </Router>
+  );
 };
 
 export default App;
